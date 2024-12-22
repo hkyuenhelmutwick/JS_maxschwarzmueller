@@ -15,9 +15,20 @@ function printResult(result) {
 
 // printResult(result);
 
+const results: { res: number, print: () => void }[] = [];
+const names = ['Max'];
+
 buttonElement.addEventListener('click', () => {
   const num1 = +num1Input.value;
   const num2 = +num2Input.value;
   const result = add(num1, num2);
-  printResult(result);
+  const resultContainer = {
+    res: result,
+    print() {
+      console.log(this.res);
+    }
+  };
+  results.push(resultContainer);
+  // results.push(5);
+  results[0].print();
 });
