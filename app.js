@@ -42,7 +42,7 @@ const company = {
     //   employee = company.next();
     // }
     let currentEmployee = 0;
-    while(currentEmployee < this.employees.length) {
+    while (currentEmployee < this.employees.length) {
       yield this.employees[currentEmployee];
       currentEmployee++;
     }
@@ -72,3 +72,23 @@ console.log([...company]);
 
 const persons = ['Max', 'Manu'];
 console.log(persons);
+
+// ---
+
+const course = {
+  title: 'JavaScript - The Complete Guide'
+};
+
+Reflect.setPrototypeOf(course, {
+  toString() {
+    return this.title;
+  }
+});
+
+Reflect.deleteProperty(course, 'title');
+
+// Object.deleteProperty(course, 'title');
+
+// delete course.title;
+
+console.log(course);
